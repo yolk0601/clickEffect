@@ -53,20 +53,20 @@
             type: 'star',// 'star'
             colors: ["#eb125f", "#6eff8a", "#6386ff", "#f9f383"],
             maxNum: 50, // 一次点击出现的球球个数
-            radius: 12, // 球球的最大半径
+            radius: 15, // 球球的最大半径
             reduceRa: 0.5, // (0,5]
-            animationTime: 50, // 动画时间间隔ms
+            animationTime: 100, // 动画时间间隔ms
             speedX: 10,
             speedY: 10,
-            addSX: 0.2, // (0,3]
-            addSY: 0.2, // (0,3]
+            addSX: 0.1, // (0,3]
+            addSY: 0.1, // (0,3]
         })
         v1.main()
         // 处理
         var btnW = document.getElementById('btnW');
         btnW.onclick = function (event){
             var target = event.target
-            console.log(target.id)
+            // console.log(target.className)
             switch(target.id){
                 case 'clearTimer':
                     v1.clearTimer();

@@ -49,12 +49,12 @@
     }
     // 清除画布
     ClickEffect.prototype.clearCanvas = function (){
-        console.log('清除画布')
+        // console.log('清除画布')
         this._ctx.clearRect(0,0,this.width,this.height);
     }
     // 暴露出去的接口，停止 定时器，可以截图效果
     ClickEffect.prototype.clearTimer = function (){
-        console.log('清除定时器')
+        // console.log('清除定时器')
         clearInterval(this._timer)
     }
     // 入口函数
