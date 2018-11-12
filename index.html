@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        .btn-wra{
+            position: absolute;
+            top:0;left:0;
+            padding:10px;
+            width:300px;
+            height:200px;
+            background-color: rgba(0,0,0,0.2);
+            box-sizing: border-box;
+        }
+        section{
+            padding:2px;
+        }
+        .btn {
+            display: inline-block;
+            padding:5px;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: center;
+            border: 1px solid #0366d6;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="demo"></canvas>
+    <div id="btnW" class="btn-wra">
+        <section>
+            <span id ="clearTimer" class="btn">清定时器</span>
+            <span id="clearCanvas" class="btn">清画布</span>
+            <span id="reset" class="btn">重置</span>
+        </section>
+        <section>
+            <span id="ball" class="btn">圆形类</span>
+            <span id="star" class="btn">星星</span>   
+        </section>
+    </div>
+    <script type="text/javascript" src='clickPattern.js'></script>
+    <script>
+        var v1 = new ClickEffect({
+            ele:document.getElementById('demo'),
+            type: 'star',// 'star'
+            colors: ["#eb125f", "#6eff8a", "#6386ff", "#f9f383"],
+            maxNum: 50, // 一次点击出现的球球个数
+            radius: 12, // 球球的最大半径
+            reduceRa: 0.5, // (0,5]
+            animationTime: 50, // 动画时间间隔ms
+            speedX: 10,
+            speedY: 10,
+            addSX: 0.2, // (0,3]
+            addSY: 0.2, // (0,3]
+        })
+        v1.main()
+        // 处理
+        var btnW = document.getElementById('btnW');
+        btnW.onclick = function (event){
+            var target = event.target
+            console.log(target.id)
+            switch(target.id){
+                case 'clearTimer':
+                    v1.clearTimer();
+                    break;
+                case 'clearCanvas':
+                    v1.clearCanvas();
+                    break;
+                case 'reset':
+                    v1.reset();
+                    break;
+                case 'star':
+                    v1.type = 'star'
+                    break;
+                case 'ball':
+                    v1.type = 'ball'
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
